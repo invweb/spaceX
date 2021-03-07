@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name" translatable="false">SpaceX</string>
+
+    <string name="flight_number">Flight №:</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="reuse">Reuse:</string>
+    <string name="core">core:</string>
+    <string name="side_core1">side_core1:</string>
+    <string name="side_core2">side_core2:</string>
+    <string name="fairings">fairings:</string>
+    <string name="fairings_text">fairings_text</string>
+    <string name="capsule">capsule:</string>
+    <string name="capsule_text">capsule_text</string>
+    <string name="details">Details:</string>
+    <string name="details_text">Details text\n</string>
+    <string name="side_core2_text">side_core2_text</string>
+    <string name="side_core1_text">side_core1_text</string>
+    <string name="core_text">core_text</string>
+    <string name="rocket_name">rocket name</string>
+    <string name="rocket_type">rocket type</string>
+    <string name="mission_number">mission_number</string>
+    <string name="mission_image">mission image</string>
+
+    <string name="details_is_empty">Details are empty</string>
+    <string name="mission_flight_name">Mission flight name:</string>
+    <string name="flihgt_number">flihgt_number</string>
+    <string name="taken_from_database">Taken only from database:</string>
+    <string name="string_true">true</string>
+    <string name="string_false">false</string>
+    <string name="data_updated">Last update time:</string>
+    <string name="shared_preference_date_millis">dateMillis</string>
+    <string name="shared_preference_check">check</string>
+    <string name="shared_preference_time">shared_preference_time</string>
+    <string name="all">All</string>
+
+    <string name="internet_error">Данные не получены, проблема с интернетом.</string>
+    <string name="view_locally">Посмотреть локально</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="years_container_text">Years:</string>
+    <string name="date_format">dd/MM/yyyy hh:mm:ss</string>
+</resources>

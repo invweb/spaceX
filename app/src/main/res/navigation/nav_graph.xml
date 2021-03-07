@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:startDestination="@id/startListFragment"
+            android:id="@+id/nav_graph">
+
+    <fragment
+            android:id="@+id/startListFragment"
+            android:name="com.spacex.fragment.StartListFragment"
+            android:label="fragment_main"
+            tools:layout="@layout/fragment_start_list">
+        <action
+            android:id="@+id/action_startListFragment_to_launchFragment"
+            app:destination="@id/startFragment"/>
+        <action
+            android:id="@+id/action_startListFragment_to_errorFragment"
+            app:destination="@id/errorFragment" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/startFragment"
+            android:name="com.spacex.fragment.StartFragment"
+            android:label="fragment_start"
+            tools:layout="@layout/fragment_start">
+        <argument
+            android:name="launch"
+            app:argType="com.spacex.database.entity.Launch"
+        />
+        <action
+            android:id="@+id/action_startFragment_to_errorFragment"
+            app:destination="@id/errorFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/errorFragment"
+        android:name="com.spacex.fragment.ErrorFragment"
+        android:label="fragment_error"
+        tools:layout="@layout/fragment_error">
+        <action
+            android:id="@+id/action_errorFragment_to_startListFragment"
+            app:destination="@id/startListFragment" />
+    </fragment>
+
+</navigation>
