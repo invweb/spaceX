@@ -1,230 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/basic_padding"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+        <variable
+            name="launch"
+            type="com.spacex.database.entity.Launch" />
+    </data>
+
+    <ScrollView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:context="com.spacex.activity.LaunchActivity">
+            android:layout_height="match_parent"
+            android:padding="@dimen/basic_padding">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                android:id="@+id/flight">
-            <TextView
-                    android:id="@+id/mission_flight_number"
-                    android:layout_width="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="com.spacex.activity.LaunchActivity">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:text="@string/flight_number"
-                    style="@style/header"
-            />
+                    android:id="@+id/flight">
+                <TextView
+                        android:id="@+id/mission_flight_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="@string/flight_number"
+                        style="@style/header"
+                />
 
-            <TextView
+                <TextView
                     android:gravity="start"
                     android:layout_gravity="start"
                     android:id="@+id/mission_flight_number_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/mission_number"
+                    android:text="@{Integer.toString(launch.flightNumber)}"
                     android:paddingStart="@dimen/basic_padding"
                     android:paddingEnd="@dimen/zero_padding"
                     android:layout_marginStart="8dp"
                     app:layout_constraintStart_toStartOf="@+id/rocket_type"
                     style="@style/header"
-            />
-        </LinearLayout>
+                />
+            </LinearLayout>
 
-        <TextView
+            <TextView
                 android:id="@+id/rocket_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="@string/rocket_type"
+                android:text="@{launch.rocket.rocketType}"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintTop_toBottomOf="@+id/flight"
                 android:layout_marginStart="0dp"
                 android:layout_marginEnd="0dp"
-        />
+            />
 
-        <TextView
+            <TextView
                 android:id="@+id/rocket_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="@string/rocket_name"
+                android:text="@{launch.rocket.rocketName}"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintTop_toBottomOf="@+id/rocket_type"
                 app:layout_constraintEnd_toEndOf="parent"
-        />
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/rocket_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:id="@+id/linearLayout">
-            <TextView
-                    android:id="@+id/reuse"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/reuse"
-                    style="@style/header"
             />
 
             <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintTop_toBottomOf="@+id/rocket_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/linearLayout">
                 <TextView
+                        android:id="@+id/reuse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reuse"
+                        style="@style/header"
+                />
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                    <TextView
                         android:id="@+id/core"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/core"
                         android:paddingStart="@dimen/zero_padding"
                         android:paddingEnd="@dimen/basic_padding"
-                />
+                    />
 
-                <TextView
+                    <TextView
                         android:id="@+id/core_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/core_text"
-                />
-            </LinearLayout>
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                <TextView
+                        android:text="@{Boolean.toString(launch.reuse.core)}"
+                    />
+                </LinearLayout>
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                    <TextView
                         android:id="@+id/side_core1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/side_core1"
                         android:paddingStart="@dimen/zero_padding"
                         android:paddingEnd="@dimen/basic_padding"
-                />
-                <TextView
+                    />
+                    <TextView
                         android:id="@+id/side_core1_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/side_core1_text"
-                />
-            </LinearLayout>
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                <TextView
-                        android:id="@+id/side_core2"
-                        android:layout_width="match_parent"
+                        android:text="@{Boolean.toString(launch.reuse.side_core1)}"
+                    />
+                </LinearLayout>
+                <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/side_core2"
-                        android:paddingEnd="@dimen/basic_padding"
-                        android:paddingStart="@dimen/zero_padding"
-                />
+                        android:orientation="horizontal">
+                    <TextView
+                            android:id="@+id/side_core2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/side_core2"
+                            android:paddingEnd="@dimen/basic_padding"
+                            android:paddingStart="@dimen/zero_padding"
+                    />
 
-                <TextView
+                    <TextView
                         android:id="@+id/side_core2_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/side_core2_text"
-                />
-            </LinearLayout>
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                <TextView
-                        android:id="@+id/fairings"
-                        android:layout_width="match_parent"
+                        android:text="@{Boolean.toString(launch.reuse.side_core2)}"
+                    />
+                </LinearLayout>
+                <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/fairings"
-                        android:paddingEnd="@dimen/basic_padding"
-                        android:paddingStart="@dimen/zero_padding"
-                />
+                        android:orientation="horizontal">
+                    <TextView
+                            android:id="@+id/fairings"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fairings"
+                            android:paddingEnd="@dimen/basic_padding"
+                            android:paddingStart="@dimen/zero_padding"
+                    />
 
-                <TextView
+                    <TextView
                         android:id="@+id/fairings_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/fairings_text"
+                        android:text="@{Boolean.toString(launch.reuse.fairings)}"
                         android:layout_marginStart="@dimen/basic_padding"
-                />
-            </LinearLayout>
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                <TextView
+                    />
+                </LinearLayout>
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                    <TextView
                         android:id="@+id/capsule"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/capsule"
                         android:paddingEnd="@dimen/basic_padding"
                         android:paddingStart="@dimen/zero_padding"
-                />
+                    />
 
-                <TextView
+                    <TextView
                         android:id="@+id/capsule_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/capsule_text"
+                        android:text="@{Boolean.toString(launch.reuse.capsule)}"
+                    />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/details_container"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                        android:id="@+id/details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/details"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                        app:layout_constraintStart_toStartOf="parent"
+                        style="@style/header"
+                />
+
+                <TextView
+                        android:id="@+id/details_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{launch.details}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                        app:layout_constraintStart_toEndOf="@+id/details"
                 />
             </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-                android:id="@+id/details_container"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                    android:id="@+id/details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/details"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                    app:layout_constraintStart_toStartOf="parent"
-                    style="@style/header"
-            />
-
-            <TextView
-                    android:id="@+id/details_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/details_text"
+            <ImageView
+                    android:id="@+id/mission_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                    app:layout_constraintStart_toEndOf="@+id/details"
-            />
-        </LinearLayout>
+                    android:src="@mipmap/ic_launcher"
+                    android:contentDescription="@string/mission_image"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    app:layout_constraintBottom_toTopOf="@+id/details_container"/>
 
-        <ImageView
-                android:id="@+id/mission_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:src="@mipmap/ic_launcher"
-                android:contentDescription="@string/mission_image"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
-                app:layout_constraintBottom_toTopOf="@+id/details_container"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
