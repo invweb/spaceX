@@ -16,7 +16,7 @@ import com.test.spacex.BR
 import com.test.spacex.R
 import com.test.spacex.databinding.LaunchesBinding
 
-class MissionAdapter(val context: Context) : RecyclerView.Adapter<MissionAdapter.MyViewHolder>() {
+class MissionAdapter(private val context: Context) : RecyclerView.Adapter<MissionAdapter.MyViewHolder>() {
     private var localLaunches: List<Launch> = emptyList()
 
     fun setLaunches(launches: List<Launch>){
@@ -52,10 +52,6 @@ class MissionAdapter(val context: Context) : RecyclerView.Adapter<MissionAdapter
                 itemBundle.putParcelable("launch", launchItem)
                 it.findNavController().navigate(R.id.startFragment, itemBundle)
             }
-
-            Glide.with(context).load(launchItem.links.missionPatchSmall).into(
-                binding.root.findViewById(R.id.image)
-            )
         }
     }
 }

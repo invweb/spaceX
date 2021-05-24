@@ -147,7 +147,7 @@ class InitViewModel(private val app: MyApplication) : AndroidViewModel(app) {
                     call: Call,
                     response: Response
                 ) {
-                    check =true
+                    check = true
                     saveCheckToSharedPreference(activity, check!!)
                 }
             })

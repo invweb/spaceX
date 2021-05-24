@@ -35,7 +35,7 @@
         android:id="@+id/database_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_below="@id/years_scroll"
         android:layout_marginStart="8dp"
         >

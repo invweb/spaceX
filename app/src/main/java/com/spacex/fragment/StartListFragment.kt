@@ -20,15 +20,14 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.spacex.R
 import android.graphics.drawable.ColorDrawable
-import com.test.spacex.databinding.FragmentStartBinding
 import com.test.spacex.databinding.FragmentStartListBinding
 
 
 class StartListFragment : Fragment() {
 
-    private var flag:Boolean = true
-    private lateinit var previousColoredView: View
-    private lateinit var startListFragmentBinding: FragmentStartListBinding
+    private var flag : Boolean = false
+    private lateinit var previousColoredView : View
+    private lateinit var startListFragmentBinding : FragmentStartListBinding
 
     override fun onStart() {
         super.onStart()
@@ -59,6 +58,7 @@ class StartListFragment : Fragment() {
 
         val launchesObserver = Observer<List<Launch>> { launches ->
             if(flag) {
+                flag = false
                 val missionAdapter = MissionAdapter(requireContext())
                 missionAdapter.setLaunches(launches)
                 missionAdapter.notifyDataSetChanged()
@@ -74,7 +74,7 @@ class StartListFragment : Fragment() {
                     viewModelInit.saveDataToDbAsync(it)
                     addLaunchYearsOnScreen(app, launches, startListFragmentBinding.yearsContainer,
                         startListFragmentBinding.recyclerView)
-                    flag = false
+//                    flag = false
                 }
             }
         }
@@ -83,7 +83,9 @@ class StartListFragment : Fragment() {
             viewModelInit.loadTimeFromSharedPreference(context).value
     }
 
-    private fun addLaunchYearsOnScreen(app: MyApplication, launches: List<Launch>, yearsContainer : LinearLayout, missionsRecyclerView : RecyclerView){
+    private fun addLaunchYearsOnScreen(app: MyApplication, launches: List<Launch>,
+                                       yearsContainer : LinearLayout,
+                                       missionsRecyclerView : RecyclerView){
         val textAll = TextView(context)
         yearsContainer.removeAllViews()
         val yearList: ArrayList<TextView> = ArrayList()

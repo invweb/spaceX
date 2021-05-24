@@ -33,6 +33,6 @@ class StartFragment : Fragment(){
         } else {
             startFragmentBinding.detailsText.text = launch?.details
         }
-        Glide.with(this).load(launch?.links?.missionPatchSmall).into(mission_image)
+//        Glide.with(this).load(launch?.links?.missionPatchSmall).into(mission_image)
     }
 }

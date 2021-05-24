@@ -223,15 +223,17 @@
             </LinearLayout>
 
             <ImageView
-                    android:id="@+id/mission_image"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:src="@mipmap/ic_launcher"
-                    android:contentDescription="@string/mission_image"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="24dp"
-                    app:layout_constraintBottom_toTopOf="@+id/details_container"/>
+                android:id="@+id/mission_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@mipmap/ic_launcher"
+                android:contentDescription="@string/mission_image"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toTopOf="@+id/details_container"
+                app:srcUrl="@{launch.links.missionPatchSmall}"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

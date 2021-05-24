@@ -24,8 +24,7 @@
 
     <string name="details_is_empty">Details are empty</string>
     <string name="mission_flight_name">Mission flight name:</string>
-    <string name="flihgt_number">flihgt_number</string>
-    <string name="taken_from_database">Taken only from database:</string>
+    <string name="taken_from_database">From database:</string>
     <string name="string_true">true</string>
     <string name="string_false">false</string>
     <string name="data_updated">Last update time:</string>
