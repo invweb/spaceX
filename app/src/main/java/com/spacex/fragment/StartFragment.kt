@@ -5,15 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
 import com.spacex.database.entity.Launch
 
 import com.test.spacex.R
 import com.test.spacex.databinding.FragmentStartBinding
-import kotlinx.android.synthetic.main.fragment_start.*
 
 class StartFragment : Fragment(){
-    lateinit var startFragmentBinding: FragmentStartBinding
+    private lateinit var startFragmentBinding: FragmentStartBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
